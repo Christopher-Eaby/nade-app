@@ -38,15 +38,13 @@ class LoginController extends Controller
         unset($userdata['_token']);
 
         if (Auth::attempt($userdata)) {
-            return redirect()->to('/');
-        }
-        else {
-            if (Auth::attempt($userdata)){
-                return redirect()->to('/');
-                Auth::login($userdata);
-            } else {
-                return redirect()->to('login');
+            $user = User::where('email', $request->get('email'))->first();
+            if($user){
+                session()->put('user.id', $user->_id);
             }
+            return redirect()->to('/');
+        } else {
+            return redirect()->to('login');
         }
     }
 
