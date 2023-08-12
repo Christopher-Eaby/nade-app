@@ -65,7 +65,7 @@ return [
 
         'mongodb' => [
             'driver' => 'mongodb',
-            'dsn' => env('DB_DSN', 'mongodb+srv://chriseaby:Meatconsumer1@cluster0.4iwjw.mongodb.net/nades?retryWrites=true&w=majority'),
+            'dsn' => env('DB_DSN', ''),
             'database' => env('DB_DATABASE', 'myappdb'),
           ],
 
