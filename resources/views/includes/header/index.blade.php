@@ -9,15 +9,12 @@
       <li class="nav-item @if(str_contains(url()->current(), 'nades')) active @endif">
         <a class="nav-link" href="/nades">Nades</a>
       </li>
-      <li class="nav-item @if(str_contains(url()->current(), 'login')) active @endif">
-        <a class="nav-link" href="/login">Login</a>
-      </li>
       <li class="nav-item @if(str_contains(url()->current(), 'admin')) active @endif">
         <a class="nav-link" href="/admin">Admin</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search">
+    <form class="form-inline my-2 my-lg-0" method="GET" action="/nades">
+      <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>

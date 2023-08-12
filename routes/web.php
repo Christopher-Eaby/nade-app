@@ -28,4 +28,7 @@ Route::post('/admin/nades/create', 'NadesAdminController@add');
 Route::post('/admin/nades/edit/{id}', 'NadesAdminController@update');
 Route::get('/admin/nades/edit/{id}', 'NadesAdminController@edit');
 
+Route::get('/admin/nades/enable/{id}', 'NadesAdminController@enable');
+Route::get('/admin/nades/delete/{id}', 'NadesAdminController@delete');
+
 Route::post('/admin/upload/image', 'AdminController@imageUploadPost');

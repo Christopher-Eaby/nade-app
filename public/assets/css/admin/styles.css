@@ -1,0 +1,19 @@
+.col-12 label {
+    padding-top: 10px;
+}
+input[type="file"] {
+    height: 45px;
+}
+
+.block {
+    border: 1px solid gray;
+    margin: 20px;
+    border-radius: 3%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.block a {
+    color: black !important;
+    text-decoration: none !important;
+}

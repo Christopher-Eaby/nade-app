@@ -3,5 +3,9 @@
 }
 .img-fluid {
     padding: 10px 10px;
-    width: 300px;
+    width: 500px;
+}
+.block a {
+    color: black !important;
+    text-decoration: none !important;
 }
