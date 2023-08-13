@@ -7,6 +7,7 @@ use App\Models\User;
 
 use Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -40,7 +41,8 @@ class LoginController extends Controller
         if (Auth::attempt($userdata)) {
             $user = User::where('email', $request->get('email'))->first();
             if($user){
-                session()->put('user.id', $user->_id);
+                Session::put('user.id', $user->_id);
+                Session::put('user.admin', $user->admin);
             }
             return redirect()->to('/');
         } else {
@@ -49,8 +51,10 @@ class LoginController extends Controller
     }
 
     public function logout(){
-        Auth::logout(); // logging out user
-        return redirect()->to('login'); // redirection to login screen
+        Auth::logout();
+        Session::forget('user.id');
+        Session::forget('user.admin');
+        return redirect()->to('login');
     }
 
 }

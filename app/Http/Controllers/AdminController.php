@@ -5,20 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Auth;
+use App\Http\Controllers\BaseAdminController;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
-class AdminController extends Controller
+use App\Models\User;
+
+class AdminController extends BaseAdminController
 {
     public function __construct(){
-        $is_admin = true;
-        if(Auth::check()){
-            if(Auth::user()->admin == 1){
-                $is_admin = true;
-            }
-        }
-        if(!$is_admin){
-            return Redirect::to('login')->send();
-        }
+        parent::__construct();
     }
 
     public function index(){

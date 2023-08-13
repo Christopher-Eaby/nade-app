@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">EZ Nades</a>
+  <a class="navbar-brand" href="/nades">GO Nades</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -9,9 +9,13 @@
       <li class="nav-item @if(str_contains(url()->current(), 'nades')) active @endif">
         <a class="nav-link" href="/nades">Nades</a>
       </li>
-      <li class="nav-item @if(str_contains(url()->current(), 'admin')) active @endif">
-        <a class="nav-link" href="/admin">Admin</a>
-      </li>
+      @if(session()->has('user.admin'))
+        @if(session()->get('user.admin'))
+          <li class="nav-item @if(str_contains(url()->current(), 'admin')) active @endif">
+            <a class="nav-link" href="/admin">Admin</a>
+          </li>
+        @endif
+      @endif
     </ul>
     <form class="form-inline my-2 my-lg-0" method="GET" action="/nades">
       <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search">

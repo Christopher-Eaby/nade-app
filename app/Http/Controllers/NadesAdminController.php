@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\BaseAdminController;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Models\Nade;
 
-class NadesAdminController extends Controller
+class NadesAdminController extends BaseAdminController
 {
+
+    public function __construct(){
+        parent::__construct();
+    }
 
     public function create(){
         $data['nade'] = new Nade;
